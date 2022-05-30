@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://gitcdn.link/cdn/imightexist/EggCSS/main/egg.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function getElement(f) {
+            return document.getElementById(f);
+        }
+        window.onload = function () {
+            let ws;
+            if (window.location.protocol == 'http:') {
+                ws = new WebSocket('ws://' + window.location.host);
+            } else {
+                ws = new WebSocket('wss://' + window.location.host);
+            }
+            ws.onopen = function () {
+                ws.send(JSON.stringify(['recent']));
+            }
+            ws.onmessage = function (f) {
+                message = JSON.parse(f.data);
+                console.log(message);
+                if (message[0] == 'recent') {
+                    //getElement('content').innerHTML = message[1];
+                    content = getElement('content')
+                    message[1].forEach(function (h) {
+                        element = document.createElement('a');
+                        element.innerHTML = h[0] + " (" + h[1] + ")"
+                        content.appendChild(element);
+                        content.appendChild(document.createElement('br'));
+                    });
+                }
+            }
+        }
+    </script>
+    <title>EggWiki</title>
+</head>
+
+<body>
+    <a href="/"><img src="logo.png"></a>
+    <a id="title" class="title">Recent Changes</a>
+    <br>
+    <div id="sidebar" class="sidebar">
+        <a href="random.html">Random Page</a>
+        <br>
+        <a href="recent-changes.html">Recent Changes</a>
+        <br>
+        <a href="?edit=true">Edit current page</a>
+        <br>
+        <a href="http://bettervm.glitch.me">BetterVM</a>
+    </div>
+    <hr>
+    <div id="content" class="content"></div>
+</body>
+
+</html>

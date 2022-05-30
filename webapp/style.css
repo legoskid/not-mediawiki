@@ -1,0 +1,26 @@
+.sidebar{
+    float:left;
+    color:white;
+    font-size:20px;
+}
+.sidebar a{
+    color:white;
+}
+.content{
+    color:white;
+    font-size:20px;
+}
+.content a{
+    color:white;
+}
+.title{
+    color:white;
+    font-size:25px;
+}
+.edit{
+    height:47%;
+    width:76%
+}
+.submit{
+    margin-left:152px
+}

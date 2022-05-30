@@ -1,1 +1,32 @@
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://gitcdn.link/cdn/imightexist/EggCSS/main/egg.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>EggWiki</title>
+</head>
+<body>
+    <a href="/"><img src="logo.png"></a>
+    <a id="title" class="title">Main Page</a>
+    <a style="float:right">You have good vision</a>
+    <br>
+    <div id="sidebar" class="sidebar">
+        <a href="random.html">Random Page</a>
+        <br>
+        <a href="recent-changes.html">Recent Changes</a>
+        <br>
+        <a href="?edit=true">Edit current page</a>
+        <br>
+        <a href="http://bettervm.glitch.me">BetterVM</a>
+    </div>
+    <hr>
+    <div id="content" class="content">
+        <textarea id="edit" class="edit"></textarea>
+        <br><br>
+        <button id="submit" class="btn-red submit" onclick="submit()">Submit</button>
+    </div>
+</body>
+</html>
